@@ -1,7 +1,5 @@
 package W1L2_HW_Asgmt;
 
-import java.util.Arrays;
-
 public class Prog2 {
     public static void main(String[] args) {
         //column names: productId, name, numInStock, provider, pricePerUnit
