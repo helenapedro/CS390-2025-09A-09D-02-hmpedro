@@ -3,6 +3,12 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 src/demo
+.idea/
+out/
+CS390-2025-09.iml
+
+
+
 
 ### Eclipse ###
 .apt_generated
