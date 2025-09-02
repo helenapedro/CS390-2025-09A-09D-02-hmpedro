@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Prog2 {
     public static void main(String[] args) {
+        //column names: productId, name, numInStock, provider, pricePerUnit
         String records = "231A,Light Bulb,123,Wilco,1.75:"+
                 "113D,Hairbrush,19,Aamco,3.75:" +
                 "521W,Shampoo,24,Acme,6.95:" +
@@ -30,6 +31,10 @@ public class Prog2 {
                 "215A,Hair Ball,0,Little Jimmy,0.00:";
 
         String[] parsedVals = records.split(":");
-        System.out.println(Arrays.toString(parsedVals));
+
+        for (String row : parsedVals) {
+            String[] columns = row.split(",");
+            System.out.println(columns[0]);
+        }
     }
 }
