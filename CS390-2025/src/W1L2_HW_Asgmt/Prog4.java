@@ -8,16 +8,16 @@ public class Prog4 {
 
         for (int i = 0; i < strArray.length; i++) {
             String currentStr = strArray[i];
-            boolean notUnique = false;
+            boolean isDuplicated = false;
 
             for (int j = 0; j < uniqueCount; j++) {
-                if (uniqueStrArray[j] == currentStr) {
-                    notUnique = true;
+                if (uniqueStrArray[j].equals(currentStr)) {
+                    isDuplicated = true;
                     break;
                 }
             }
 
-            if (!notUnique) {
+            if (!isDuplicated) {
                 uniqueStrArray[uniqueCount] = currentStr;
                 uniqueCount++;
             }

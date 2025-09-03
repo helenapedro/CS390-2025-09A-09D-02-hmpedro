@@ -7,8 +7,8 @@ public class QuickEmiQuote {
         Random random = new Random();
 
         // 1. Randomize inputs(Use Random/ RandomGenerator API)
-        int P = random.nextInt(5000, 25000); // principal
-        int n = random.nextInt(6, 36);  // Tenure(months)
+        int P = random.nextInt(5000, 25001); // principal
+        int n = random.nextInt(6, 37);  // Tenure(months)
         double APR = random.nextDouble(3.5, 11.5);  // Annual Interest Rate
 
         // 2. Compute EMI (Equated Monthly Installment – Use Math API)

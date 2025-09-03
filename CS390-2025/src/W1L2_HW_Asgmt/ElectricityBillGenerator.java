@@ -18,7 +18,7 @@ public class ElectricityBillGenerator {
             unitsConsumed = sc.nextInt();
 
             // 2. Use a single switch expression to compute the bill
-            double bill = switch (userType) {
+            double bill = switch (userType.toUpperCase()) {
                 case "R" -> 0.12 * unitsConsumed; // Residential
                 case "C" -> 0.20 * unitsConsumed; // Commercial
                 case "I" -> 0.35 * unitsConsumed; // Industrial
@@ -35,7 +35,7 @@ public class ElectricityBillGenerator {
             // 4. After each bill, ask:
             System.out.print("\nDo you want to calculate another bill? (y/n): ");
             userAnswer = sc.next();
-        } while (userAnswer.equals("y") || userAnswer.equals("Y"));
+        } while (userAnswer.equalsIgnoreCase("y"));
 
         System.out.println("Goodbye! Thanks for using the Electricity Bill Generator.");
         sc.close();

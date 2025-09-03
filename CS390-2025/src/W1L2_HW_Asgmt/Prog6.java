@@ -2,6 +2,8 @@ package W1L2_HW_Asgmt;
 
 public class Prog6 {
     public static void secondMin(int[] arraysOfInts) {
+        if (arraysOfInts == null || arraysOfInts.length < 2) return;
+
         int firstMin = Integer.MAX_VALUE; // firstMin: ∞
         int secondMin = Integer.MAX_VALUE; // secondMin: ∞
 
