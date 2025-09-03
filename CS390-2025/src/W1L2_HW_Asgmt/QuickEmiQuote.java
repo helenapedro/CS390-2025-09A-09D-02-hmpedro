@@ -1,12 +1,15 @@
 package W1L2_HW_Asgmt;
 
+import java.util.Random;
+
 public class QuickEmiQuote {
     public static void main(String[] args) {
+        Random random = new Random();
+
         // 1. Randomize inputs(Use Random/ RandomGenerator API)
-        int P = RandomNumbers.getRandomInt(5000, 25000); // principal
-        int n = RandomNumbers.getRandomInt(6, 36);  // Tenure(months)
-        int decimalValue = RandomNumbers.getRandomInt(35, 115);
-        double APR = decimalValue/10.0; // Annual Interest Rate
+        int P = random.nextInt(5000, 25000); // principal
+        int n = random.nextInt(6, 36);  // Tenure(months)
+        double APR = random.nextDouble(3.5, 11.5);  // Annual Interest Rate
 
         // 2. Compute EMI (Equated Monthly Installment – Use Math API)
         double r = APR / 12 / 100;  // montly rate
