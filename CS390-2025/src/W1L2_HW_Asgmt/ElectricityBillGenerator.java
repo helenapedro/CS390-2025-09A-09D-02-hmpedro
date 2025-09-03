@@ -11,12 +11,13 @@ public class ElectricityBillGenerator {
 
         System.out.print("Enter user type (R/C/I): ");
         userType = sc.next();
-        System.out.println("Your user type is: " + userType);
 
-        System.out.print("Enter units consumed:");
+        System.out.print("Enter units consumed: ");
         unitsConsumed = sc.nextInt();
-        System.out.println("The units consumed is: " + unitsConsumed);
-        sc.close();
+
+        System.out.println("\n=== Electricity Bill ===");
+        System.out.println("User Type: " + userType);
+        System.out.println("Units: " + unitsConsumed);
 
         // 2. Use a single switch expression to compute the bill
         double bill = switch (userType) {
@@ -25,6 +26,11 @@ public class ElectricityBillGenerator {
             case "I" -> 0.35 * unitsConsumed;
             default -> 0.00;
         };
+
+        // 3. Display the bill details neatly formatted.
         System.out.printf("Bill Amount: $%.2f \n", bill);
+
+        System.out.println("Goodbye! Thanks for using the Electricity Bill Generator.");
+        sc.close();
     }
 }
