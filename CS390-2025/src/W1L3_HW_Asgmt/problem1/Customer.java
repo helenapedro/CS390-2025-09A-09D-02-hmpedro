@@ -16,9 +16,9 @@ public class Customer {
     @Override
     public String toString() {
         return "[" +
-                " firstName = '" + firstName + '\'' +
-                ", lastName = '" + lastName + '\'' +
-                ", socSecurityNum = '" + socSecurityNum +
+                firstName + ", " +
+                lastName + ", " +
+                "ssn: " + socSecurityNum +
                 ']';
     }
 

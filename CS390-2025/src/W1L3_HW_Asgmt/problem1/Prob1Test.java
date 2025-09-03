@@ -6,6 +6,7 @@ public class Prob1Test {
         Customer c1 = new Customer("Jane", "Doe", "332-221-4444");
         Customer c2 = new Customer("Joe", "Smith", "987-654-3848");
         Customer c3 = new Customer("Janeth", "Smith", "345-987-6996");
+        System.out.println(c1);
 
         // Address
         Address a1 = new Address("1000 N Webber ST", "Fairfield", "IA", "52556");
