@@ -19,10 +19,10 @@ public class ElectricityBillGenerator {
 
             // 2. Use a single switch expression to compute the bill
             double bill = switch (userType) {
-                case "R" -> 0.12 * unitsConsumed;
-                case "C" -> 0.20 * unitsConsumed;
-                case "I" -> 0.35 * unitsConsumed;
-                default -> 0.00;
+                case "R" -> 0.12 * unitsConsumed; // Residential
+                case "C" -> 0.20 * unitsConsumed; // Commercial
+                case "I" -> 0.35 * unitsConsumed; // Industrial
+                default -> 0.00; // Invalid code
             };
 
             // 3. Display the bill details neatly formatted.
