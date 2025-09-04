@@ -16,54 +16,54 @@ public class Problem3Test {
         // Hotel Booking
         String hotelName;
         int nights;
-        double pricePerNight;
+        int pricePerNight;
         // Car Rental
-        String carModel;
+        int carModel;
         int days;
-        double ratePerDay;
-        double milesPerDay;
+        int ratePerDay;
+        int milesPerDay;
 
         do {
-            System.out.println("Enter F for Flight Booking");
-            System.out.println("Enter H for Hotel Booking");
-            System.out.println("Enter C for Car Rental");
+            System.out.print("Enter F for Flight Booking");
+            System.out.print("Enter H for Hotel Booking");
+            System.out.print("Enter C for Car Rental");
 
             input = sc.next();
 
             switch (input.toLowerCase()) {
                 case "f" -> {
-                    System.out.print("Enter origin: ");
+                    System.out.print("Enter origin (e.g., Chicago: ");
                     origin = sc.next();
-                    System.out.print("Enter destination: ");
+                    System.out.print("Enter destination (e.g., Bangalore): ");
                     destination = sc.next();
-                    System.out.print("Enter distance in km: ");
+                    System.out.print("Enter distance in km (e.g., 6000): ");
                     distanceKm = sc.nextInt();
-                    System.out.print("Enter average speed (km/h): ");
+                    System.out.print("Enter average speed (km/h) (e.g., 450): ");
                     avgSpeed = sc.nextDouble();
 
                     FlightBooking fb1 = new FlightBooking(origin, destination, distanceKm);
-                    System.out.printf("Estimated Flight Time: %.2f%n",fb1.computeFlightTime(avgSpeed));
+                    System.out.printf("Estimated Flight Time: %.2f hours",fb1.computeFlightTime(avgSpeed));
                 }
                 case "h" -> {
-                    System.out.print("Enter hotel name: ");
+                    System.out.print("Enter hotel name (e.g., Holiday Inn): ");
                     hotelName = sc.next();
-                    System.out.print("Enter nights (e.g. 3): ");
+                    System.out.print("Enter nights (e.g. 2): ");
                     nights = sc.nextInt();
-                    System.out.print("Enter price per night: ");
-                    pricePerNight = sc.nextDouble();
+                    System.out.print("Enter price per night (e.g., 250): ");
+                    pricePerNight = sc.nextInt();
 
                     HotelBooking hb1 = new HotelBooking(hotelName, nights, pricePerNight);
-                    System.out.printf("Total cost per night: %.2f%n", hb1.totalCost());
+                    System.out.printf("Total hotel cost: %.2f%n", hb1.totalCost());
                 }
                 case "c" -> {
-                    System.out.print("Enter car model: ");
-                    carModel = sc.next();
-                    System.out.print("Enter days: ");
+                    System.out.print("Enter car model (e.g., 2023): ");
+                    carModel = sc.nextInt();
+                    System.out.print("Enter number of days (e.g., 2): ");
                     days = sc.nextInt();
-                    System.out.print("Enter rate per day: ");
-                    ratePerDay = sc.nextDouble();
-                    System.out.print("Enter miles per day: ");
-                    milesPerDay = sc.nextDouble();
+                    System.out.print("Enter rate per day (e.g.,15): ");
+                    ratePerDay = sc.nextInt();
+                    System.out.print("Enter miles per day (e.g., 30): ");
+                    milesPerDay = sc.nextInt();
 
                     CarRental cr1 = new CarRental(carModel, days, ratePerDay, milesPerDay);
                     System.out.printf("Total rental cost: %.2f%n", cr1.totalRentalCost());

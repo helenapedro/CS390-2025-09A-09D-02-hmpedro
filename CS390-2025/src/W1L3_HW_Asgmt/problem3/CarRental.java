@@ -1,12 +1,12 @@
 package W1L3_HW_Asgmt.problem3;
 
 final public class CarRental {
-    private String carModel;
+    private int carModel;
     private int days;
-    private double ratePerDay;
-    private double milesPerDay;
+    private int ratePerDay;
+    private int milesPerDay;
 
-    public CarRental(String carModel, int days, double ratePerDay, double milesPerDay) {
+    public CarRental(int carModel, int days, int ratePerDay, int milesPerDay) {
         this.carModel = carModel;
         this.days = days;
         this.ratePerDay = ratePerDay;
@@ -21,7 +21,7 @@ final public class CarRental {
         return days * milesPerDay;
     }
 
-    public String getCarModel() {
+    public int getCarModel() {
         return carModel;
     }
 
@@ -37,10 +37,10 @@ final public class CarRental {
         return milesPerDay;
     }
 
-//    public static void main(String[] args) {
-//        CarRental cr1 = new CarRental("Mazda", 6, 2.22, 122.22);
-//        System.out.printf("Total rental cost: %.2f%n", cr1.totalRentalCost());
-//        System.out.printf("Total miles allowed: %.2f%n", cr1.totalMilesAllowed());
+//   public static void main(String[] args) {
+//        CarRental cr1 = new CarRental(2023, 2, 15, 30);
+//        System.out.printf("Total rental cost: %.2f%n", cr1.totalRentalCost()); // 30.00
+//        System.out.printf("Total miles allowed: %.2f%n", cr1.totalMilesAllowed()); // 60.00
 //
 //    }
 }
