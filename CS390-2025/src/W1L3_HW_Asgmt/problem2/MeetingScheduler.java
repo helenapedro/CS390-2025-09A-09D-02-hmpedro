@@ -15,16 +15,19 @@ public class MeetingScheduler {
             DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy ' @ ' HH:mm '['VV']'", Locale.ENGLISH); // output
     private static final Scanner SC = new Scanner(System.in);
     public String readEventName() {
-        String eventName;
-        System.out.print("Please type the event name: ");
-        eventName = SC.nextLine();
-        return eventName;
+        String name;
+        do {
+            name = prompt("Please type the event name: ");
+            if (name.isEmpty()) {
+                System.out.println("Name cannot be empty. Try again.");
+            }
+        } while (name.isEmpty());
+        return name;
     }
 
     public LocalDateTime readEventDateTime() {
         while (true) {
-            System.out.print("Enter event date & time (yyyy-M-d H:mm), e.g. 2025-10-22 14:21: ");
-            String input = SC.nextLine().trim();
+            String input = prompt("Enter event date & time (yyyy-M-d H:mm), e.g. 2025-10-22 14:21: ");
             try {
                 return LocalDateTime.parse(input, INPUT);
             } catch (DateTimeParseException e) {
@@ -35,8 +38,7 @@ public class MeetingScheduler {
 
     public static ZoneId readTargetZone() {
         while (true) {
-            System.out.print("Enter target time zone (e.g., Africa/Luanda): ");
-            String input = SC.nextLine().trim();
+            String input = prompt("Enter target time zone (e.g., Africa/Luanda): ");
             try {
                 return ZoneId.of(input);
             } catch (java.time.DateTimeException e) {
@@ -58,9 +60,14 @@ public class MeetingScheduler {
                 : String.format("Event was %d days, %d hours, %d minutes ago", days, hours, minutes);
     }
 
+    private static String prompt(String message) {
+        System.out.print(message);
+        return SC.nextLine().trim();
+    }
+
     /**
-     * Package-private getter for NICE_FORMAT to avoid making the field public.
-     * default-package - accessible inside W1L3_HW_Asgmt.problem2
+     * getter to avoid making the NICE_FORMAT field public.
+     * accessible inside W1L3_HW_Asgmt.problem2
      */
     static DateTimeFormatter getNiceFormat() {
         return NICE_FORMAT;
