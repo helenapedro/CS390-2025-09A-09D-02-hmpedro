@@ -13,21 +13,19 @@ public class MeetingScheduler {
     private static final DateTimeFormatter INPUT = DateTimeFormatter.ofPattern("yyyy-M-d H:mm"); // parse
     private static final DateTimeFormatter NICE_FORMAT =
             DateTimeFormatter.ofPattern("EEEE, MMMM d, yyyy ' @ ' HH:mm '['VV']'", Locale.ENGLISH); // output
-
+    private static final Scanner SC = new Scanner(System.in);
     public String readEventName() {
-        Scanner sc = new Scanner(System.in);
         String eventName;
 
         System.out.print("Please type the event name: ");
-        eventName = sc.nextLine();
+        eventName = SC.nextLine();
         return eventName;
     }
 
     public LocalDateTime readEventDateTime() {
-        Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.print("Enter event date & time (yyyy-M-d H:mm), e.g. 2025-10-22 14:21: ");
-            String input = sc.nextLine().trim();
+            String input = SC.nextLine().trim();
             try {
                 return LocalDateTime.parse(input, INPUT);
             } catch (DateTimeParseException e) {
@@ -36,11 +34,10 @@ public class MeetingScheduler {
         }
     }
 
-    private static ZoneId readTimeZone() {
-        Scanner sc = new Scanner(System.in);
+    public static ZoneId readTargetZone() {
         while (true) {
             System.out.print("Enter target time zone (e.g., Africa/Luanda): ");
-            String input = sc.nextLine().trim();
+            String input = SC.nextLine().trim();
             try {
                 return ZoneId.of(input);
             } catch (java.time.DateTimeException e) {
@@ -51,37 +48,19 @@ public class MeetingScheduler {
 
     public String formatEventDetails(ZonedDateTime target) {
         ZonedDateTime now = ZonedDateTime.now(target.getZone());
-        long totalMinutes = ChronoUnit.MINUTES.between(now, target);
-        long abs = Math.abs(totalMinutes);
-        long days = abs / (24 * 60);
-        long hours = (abs / 60) % 24;
-        long minutes = abs % 60;
+        long totalMinutes = ChronoUnit.MINUTES.between(now, target); // > 0 => future; < 0 => past; == 0 => exactly now
+        long abs = Math.abs(totalMinutes); // for splitting into components
+        long days = abs / (24 * 60); // whole days
+        long hours = (abs / 60) % 24; // remaining hours after days
+        long minutes = abs % 60;  // remaining minutes after hours
 
-        return (totalMinutes >= 0)
+        return (totalMinutes >= 0) // Choose message based on the sign of the difference
                 ? String.format("Time until event: %d days, %d hours, %d minutes", days, hours, minutes)
                 : String.format("Event was %d days, %d hours, %d minutes ago", days, hours, minutes);
     }
 
-    public static void main(String[] args) {
-        MeetingScheduler eventCalculator = new MeetingScheduler();
-
-        String eventName = eventCalculator.readEventName();
-        LocalDateTime eventLdt = eventCalculator.readEventDateTime();
-
-        ZoneId target = readTimeZone();
-        ZoneId zone = ZoneId.systemDefault();
-        ZonedDateTime eventZdt = eventLdt.atZone(zone);
-
-        var eventInTarget = eventZdt.withZoneSameInstant(target);
-
-        System.out.printf("Event name: %s%n", eventName);
-        System.out.println("Your event is scheduled for: " + eventZdt.format(NICE_FORMAT));
-        System.out.println(eventCalculator.formatEventDetails(eventZdt));
-
-        // weekday + leap year
-        var eventDate = eventLdt.toLocalDate();
-        System.out.println("Day of week: " + eventDate.getDayOfWeek());
-        System.out.println("Is Leap year? " + eventDate.isLeapYear());
-        System.out.println("In target zone: " + eventInTarget.format(NICE_FORMAT));
+    // getter (default-package) - accessible inside W1L3_HW_Asgmt.problem2
+    static DateTimeFormatter getNiceFormat() {
+        return NICE_FORMAT;
     }
 }
