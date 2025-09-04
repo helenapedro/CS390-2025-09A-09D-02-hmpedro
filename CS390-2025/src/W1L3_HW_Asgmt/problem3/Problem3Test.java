@@ -24,15 +24,15 @@ public class Problem3Test {
         int milesPerDay;
 
         do {
-            System.out.print("Enter F for Flight Booking");
-            System.out.print("Enter H for Hotel Booking");
-            System.out.print("Enter C for Car Rental");
+            System.out.println("Enter F for Flight Booking");
+            System.out.println("Enter H for Hotel Booking");
+            System.out.print("Enter C for Car Rental: ");
 
             input = sc.next();
 
             switch (input.toLowerCase()) {
                 case "f" -> {
-                    System.out.print("Enter origin (e.g., Chicago: ");
+                    System.out.print("Enter origin (e.g., Chicago): ");
                     origin = sc.next();
                     System.out.print("Enter destination (e.g., Bangalore): ");
                     destination = sc.next();
@@ -69,10 +69,13 @@ public class Problem3Test {
                     System.out.printf("Total rental cost: %.2f%n", cr1.totalRentalCost());
                     System.out.printf("Total miles allowed: %.2f%n", cr1.totalMilesAllowed());
                 }
-                default -> System.out.println("Illegal input");
+                default -> System.out.println("Invalid input. Please enter F, H or C.");
             }
-            System.out.println("Do you want to continue(y/n)?");
+            System.out.print("\nDo you want to continue (y/n)?");
             answer = sc.next();
         } while (answer.equalsIgnoreCase("y"));
+
+        System.out.println("Goodbye!");
+        sc.close();
     }
 }

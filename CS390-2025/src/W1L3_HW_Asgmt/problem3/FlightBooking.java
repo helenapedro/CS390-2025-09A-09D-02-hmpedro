@@ -7,10 +7,13 @@ public record FlightBooking(String origin, String destination, int distanceKm) {
         } if (destination == null || destination.length() == 0) {
             throw new IllegalArgumentException("Invalid input");
         } if (distanceKm < 1) {
-            throw new IllegalArgumentException("distance must be >= 1.0");
+            throw new IllegalArgumentException("distance must be >= 1");
         }
     }
     public double computeFlightTime(double avgSpeed) {
+        if (avgSpeed <= 0) {
+            throw new IllegalArgumentException("Average speed must be > 0");
+        }
         return  distanceKm / avgSpeed;
     }
 

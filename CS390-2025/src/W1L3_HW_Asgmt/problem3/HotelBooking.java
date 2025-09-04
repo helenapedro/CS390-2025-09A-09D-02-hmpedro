@@ -6,6 +6,8 @@ public record HotelBooking(String hotelName, int nights, int pricePerNight) {
             throw new IllegalArgumentException("Invalid input");
         } if (nights < 1) {
             throw new IllegalArgumentException("Time to stay must be >= 1");
+        } if (pricePerNight < 0) {
+            throw new IllegalArgumentException("Price per night must be >= 0");
         }
     }
     public double totalCost() {
