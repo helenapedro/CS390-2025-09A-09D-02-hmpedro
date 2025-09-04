@@ -14,8 +14,8 @@ public record HotelBooking(String hotelName, int nights, int pricePerNight) {
         return nights * pricePerNight;
     }
 
-//    public static void main(String[] args) {
-//        HotelBooking hb1 = new HotelBooking("Holiday Inn", 2, 250);
-//        System.out.printf("Total Hotel Cost: %.2f%n", hb1.totalCost()); // 500.00
-//    }
+    public static void show() {
+        HotelBooking hb1 = new HotelBooking("Holiday Inn", 2, 250);
+        System.out.printf("Total Hotel Cost: %.2f%n", hb1.totalCost()); // 500.00
+    }
 }

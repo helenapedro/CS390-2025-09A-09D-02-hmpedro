@@ -17,9 +17,9 @@ public record FlightBooking(String origin, String destination, int distanceKm) {
         return  distanceKm / avgSpeed;
     }
 
-//    public static void main(String[] args) {
-//        FlightBooking fb1 = new FlightBooking("Chicago", "Bangalore", 6000);
-//        int avgSpeed = 450;
-//        System.out.printf("Estimated Flight Time: %.2f hours",fb1.computeFlightTime(avgSpeed)); // 13.33
-//    }
+    public static void show() {
+        FlightBooking fb1 = new FlightBooking("Chicago", "Bangalore", 6000);
+        int avgSpeed = 450;
+        System.out.printf("Estimated Flight Time: %.2f hours",fb1.computeFlightTime(avgSpeed)); // 13.33
+    }
 }

@@ -42,10 +42,10 @@ final public class CarRental {
 
     public double getMilesPerDay() {return milesPerDay;}
 
-//   public static void main(String[] args) {
-//        CarRental cr1 = new CarRental(2023, 2, 15, 30);
-//        System.out.printf("Total rental cost: %.2f%n", cr1.totalRentalCost()); // 30.00
-//        System.out.printf("Total miles allowed: %.2f%n", cr1.totalMilesAllowed()); // 60.00
-//
-//    }
+   public static void show() {
+        CarRental cr1 = new CarRental(2023, 2, 15, 30);
+        System.out.printf("Total rental cost: %.2f%n", cr1.totalRentalCost()); // 30.00
+        System.out.printf("Total miles allowed: %.2f%n", cr1.totalMilesAllowed()); // 60.00
+
+    }
 }
