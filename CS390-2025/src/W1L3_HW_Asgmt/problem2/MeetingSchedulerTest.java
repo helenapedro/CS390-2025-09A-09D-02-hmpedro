@@ -27,3 +27,13 @@ public class MeetingSchedulerTest {
         System.out.printf("In target zone: %s%n", eventInTarget.format(MeetingScheduler.getNiceFormat()));
     }
 }
+
+/**
+ * Notes:
+ * - Parsing/formatting uses DateTimeFormatter
+ * - Time arithmetic uses ChronoUnit (no Duration needed)
+ * - ZonedDateTime is used to keep time zone/DST correct
+ * reference:
+ * lesson3-dateapi-LocalDateDemo1
+ * lesson3-dateapi-AgeCalculator
+ */

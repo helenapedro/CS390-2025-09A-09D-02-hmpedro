@@ -16,7 +16,6 @@ public class MeetingScheduler {
     private static final Scanner SC = new Scanner(System.in);
     public String readEventName() {
         String eventName;
-
         System.out.print("Please type the event name: ");
         eventName = SC.nextLine();
         return eventName;
@@ -59,7 +58,10 @@ public class MeetingScheduler {
                 : String.format("Event was %d days, %d hours, %d minutes ago", days, hours, minutes);
     }
 
-    // getter (default-package) - accessible inside W1L3_HW_Asgmt.problem2
+    /**
+     * Package-private getter for NICE_FORMAT to avoid making the field public.
+     * default-package - accessible inside W1L3_HW_Asgmt.problem2
+     */
     static DateTimeFormatter getNiceFormat() {
         return NICE_FORMAT;
     }
