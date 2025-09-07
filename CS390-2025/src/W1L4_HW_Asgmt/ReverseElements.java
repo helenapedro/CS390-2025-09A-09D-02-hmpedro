@@ -23,14 +23,4 @@ public class ReverseElements {
 
         return reverseNElements(arr, i + 1, j - 1);
     }
-
-    public static void show() {
-        int[] r2 = reverseNElements(new int[]{}); // After Reverse: []
-        int[] r1 = reverseNElements(new int[]{1, 3, 5, 7, 9, 13}); // After Reverse: [13, 9, 7, 5, 3, 1]
-        int[] r3 = reverseNElements(new int[]{0}); // After Reverse: [0]
-
-        System.out.println(Arrays.toString(r1));
-        System.out.println(Arrays.toString(r2));
-        System.out.println(Arrays.toString(r3));
-    }
 }

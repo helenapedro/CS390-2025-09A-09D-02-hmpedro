@@ -1,11 +1,7 @@
 package W1L4_HW_Asgmt;
 
 public class ReturnMax {
-        /*
-          Write a recursive solution to return max value from the given array.
-          Example: [5, -3, 6, 1, 9, 4 ], Max = 9
-        */
-
+        /*Write a recursive solution to return max value from the given array.*/
     public static void main(String[] args) {
         int[] arr = {5, -3, 6, 1, 9, 4};
         int maxValue = findMax(arr);

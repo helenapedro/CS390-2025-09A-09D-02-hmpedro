@@ -22,18 +22,4 @@ public class Palindrome {
 
         return isPalindrome(num, temp / 10, reversed);
     }
-
-    public static void show() {
-        boolean c1 = isPalindrome(121); // true
-        boolean c2 = isPalindrome(102); // false
-        boolean c3 = isPalindrome(-121); // false
-        boolean c4 = isPalindrome(-102); // false
-        boolean c5 = isPalindrome(0); // true
-
-        System.out.println(c1);
-        System.out.println(c2);
-        System.out.println(c3);
-        System.out.println(c4);
-        System.out.println(c5);
-    }
 }

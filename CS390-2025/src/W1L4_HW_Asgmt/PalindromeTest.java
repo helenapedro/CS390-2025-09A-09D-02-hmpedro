@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PalindromeTest {
     @Test
-    public void isPalindrome() {
+    public void testIsPalindrome() {
         // assertTrue(condition) - Passes if the condition is true.
         assertTrue(Palindrome.isPalindrome(0));
         assertTrue(Palindrome.isPalindrome(121));
