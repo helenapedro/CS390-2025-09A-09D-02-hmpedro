@@ -10,6 +10,7 @@ class PalindromeTest {
         // assertTrue(condition) - Passes if the condition is true.
         assertTrue(Palindrome.isPalindrome(0));
         assertTrue(Palindrome.isPalindrome(121));
+        assertTrue(Palindrome.isPalindrome(101));
 
         // assertFalse(condition) - Passes if the condition is false.
         //assertFalse(Palindrome.isPalindrome(121)); // AssertionFailedError

@@ -1,0 +1,45 @@
+Inheritance:
+    -> "IS-A" relationship
+    -> use the "extends" keyword to achieve inheritance
+    -> other than private, everything you can access in your child class, that means:
+        * The subclass can have access to all of its super class fields and
+        methods, excepts private fields
+    -> If I have no constructors, default will be invoked
+    -> You can include additional attributes, behavior in your child class
+
+Motivations for inheritance:
+    -> Generalization
+
+If you want to achieve Polymorphism:
+    -> Prefer Super type - Declaring:
+            Employee e = new Manager();
+
+When we have a IS-A relationship what the compiler will do is:
+    -> check right side new object creation is suitable for the left side declaration
+                    Employee e = new Manager() // new object created
+    so, when I have inheritance, automaticaly the subtype is also a type of a parent
+    (Employee e = new Manager() -> Manager is a type of Manager as well as Employee, due to inheritance)
+    Now that we have created a manager, the compiler will verify if the manager is a
+    subtype of Employee. That's why is recommended to always prefer the Super type.
+
+Sub class is a type of super class
+    Employee e2 = new Manager(); // Manager is a type of Manager as well as Employee, due to inheritance
+
+Order of Execution:
+     -> Employee e2 = new Manager("Tom", 4500.66, 2000, 12, 2);
+     -> Manager m1 = new Manager("Will", 80000, 2014, 2, 22);
+        * para o object e2 e m1, 1º vai ser rodado o constructor de parametros da super class (Employee)
+        * So depois e que vai rodar o constructor da classe Manager
+
+/* Overriding - You can customize the parent behavior in your child class
+     * Dynamic binding, late binding
+     * You have to follow the same signature from the Parent
+     * override the behaviour of getSalary()
+     * @Override - Annotation is for readability as well as compiler verification
+     *  getSalary() can declare with the same visibility or higher visibility modifier
+*/
+
+Pattern Matching - Instance of
+
+Switch case - verify runtime type
+
