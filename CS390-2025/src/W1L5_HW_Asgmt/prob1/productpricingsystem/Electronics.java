@@ -1,28 +1,39 @@
 package W1L5_HW_Asgmt.prob1.productpricingsystem;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class Electronics extends Product {
-    private LocalDate warranty;
-    private double cost;
+    private int warrantyMonths;
+    private double warrantyCost;
 
-    public Electronics(String productName, double price, int year, int month, int day) {
+    public Electronics(String productName, double price) {
         super(productName, price);
-        warranty = LocalDate.of(year, month, day);
     }
 
     @Override
     public double getPrice() {
-        return cost + super.getPrice();
+        return warrantyCost + super.getPrice();
     }
 
-    private String getWarranty () {
-        final String DATE_PATTERN = "MM/dd/yyyy";
-        return warranty.format(DateTimeFormatter.ofPattern(DATE_PATTERN));
+    @Override
+    public String toString() {
+        return String.format(
+                "Electronic { name = '%s', price = %.2f, warranty months = %d,warranty cost = %.2f, final price = %.2f }",
+                getProductName(), super.getPrice(), warrantyMonths, warrantyCost, getPrice()
+        );
     }
 
-    public double getCost() {
-        return cost;
+    public int getWarrantyMonths() {
+        return warrantyMonths;
+    }
+
+    public void setWarrantyMonths(int warrantyMonths) {
+        this.warrantyMonths = warrantyMonths;
+    }
+
+    public double getWarrantyCost() {
+        return warrantyCost;
+    }
+
+    public void setWarrantyCost(double warrantyCost) {
+        this.warrantyCost = warrantyCost;
     }
 }
