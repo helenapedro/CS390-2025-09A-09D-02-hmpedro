@@ -19,7 +19,7 @@ public class SoundSensor implements Sensor {
 
     @Override
     public String getSensorType() {
-        return getClass().getSimpleName();
+        return getClass().getSimpleName().replace("Sensor", "");
     }
     @Override
     public double getReading() {

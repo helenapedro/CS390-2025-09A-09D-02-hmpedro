@@ -18,7 +18,8 @@ public class LightSensor implements Sensor {
 
     @Override
     public String getSensorType() {
-        return getClass().getSimpleName();
+
+        return getClass().getSimpleName().replace("Sensor", "");
     }
 
     @Override

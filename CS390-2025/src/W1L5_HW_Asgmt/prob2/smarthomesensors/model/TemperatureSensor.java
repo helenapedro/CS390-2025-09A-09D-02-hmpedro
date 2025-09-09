@@ -4,12 +4,12 @@ import W1L5_HW_Asgmt.prob2.smarthomesensors.interfaces.Sensor;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TemparatureSensor implements Sensor {
+public class TemperatureSensor implements Sensor {
     private String location;
     double temperature;
     LocalDateTime lastUpdated;
 
-    public TemparatureSensor(String location, double temperature) {
+    public TemperatureSensor(String location, double temperature) {
         this.location = location;
         this.temperature = temperature;
         lastUpdated = LocalDateTime.now();
@@ -17,7 +17,8 @@ public class TemparatureSensor implements Sensor {
 
     @Override
     public String getSensorType() {
-        return getClass().getSimpleName();
+
+        return getClass().getSimpleName().replace("Sensor", "");
     }
 
     @Override
