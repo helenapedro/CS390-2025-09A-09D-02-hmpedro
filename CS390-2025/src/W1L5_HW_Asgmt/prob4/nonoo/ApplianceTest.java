@@ -1,4 +1,4 @@
-package prob4.nonoo;
+package W1L5_HW_Asgmt.prob4.nonoo;
 
 public class ApplianceTest {
     public static void main(String[] args) {

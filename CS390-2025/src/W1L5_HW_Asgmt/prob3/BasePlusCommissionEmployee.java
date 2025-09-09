@@ -21,10 +21,10 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     @Override
     public String toString() {
-        String res = super.toString();
-        return res + "\n" +
-                "Base Plus Commission Employee [Base Salary= " + baseSalary + "]\n" +
-                "Payment=" + getPayment();
+        // BasePlusCommissionEmployee extends from CommissionEmployee, so these fields
+        // name comes from CommissionEmployee, not Employee.
+        String fieldsNameFromSuper = super.toString();
+        return fieldsNameFromSuper + ", Base Salary= " + baseSalary + "\n";
     }
 
 }

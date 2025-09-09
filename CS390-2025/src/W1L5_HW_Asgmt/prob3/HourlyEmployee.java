@@ -17,10 +17,10 @@ public class HourlyEmployee extends Employee{
 
     @Override
     public String toString() {
-        String res = super.toString();
-        return res + "\n" + " Hourly Employee [" +
-                "wage=" + wage + ", hours" +  hours + "]\n" +
-                "Payment=" + getPayment();
+        String fieldsNameFromSuper = super.toString();
+        return fieldsNameFromSuper + ", " + getClass().getSimpleName() +
+                ", " + "wage=" + wage + ", " + "hours" +  hours + ", " +
+                "Payment=" + getPayment() + "\n";
     }
 
     public double getWage() {

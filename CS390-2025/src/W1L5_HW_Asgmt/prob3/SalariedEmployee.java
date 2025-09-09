@@ -21,9 +21,9 @@ public class SalariedEmployee extends Employee{
 
     @Override
     public String toString() {
-        String res = super.toString();
-        return res + "\n" +
-                " Salaried Employee [weeklySalary=" + weeklySalary + "]\n +" +
-                "Payment=" + getPayment();
+        String fieldsNameFromSuper = super.toString();
+        return fieldsNameFromSuper + ", " + getClass().getSimpleName() + ", " +
+                "weeklySalary=" + weeklySalary + ", " +
+                "Payment=" + getPayment() + "\n";
     }
 }

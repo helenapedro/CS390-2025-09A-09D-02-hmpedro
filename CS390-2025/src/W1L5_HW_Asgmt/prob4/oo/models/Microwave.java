@@ -1,10 +1,17 @@
-package W1L5_HW_Asgmt.prob4.nonoo;
+package W1L5_HW_Asgmt.prob4.oo.models;
 
-public class Microwave {
+import W1L5_HW_Asgmt.prob4.oo.interfaces.Appliance;
+
+public class Microwave  implements Appliance {
     private int powerLevel;
 
     public Microwave(int powerLevel) {
         this.powerLevel = powerLevel;
+    }
+
+    @Override
+    public void performFunction() {
+        System.out.println("Heating food at power level: " + powerLevel + ".");
     }
 
     public int getPowerLevel() {
@@ -13,8 +20,5 @@ public class Microwave {
 
     public String heatFood() {
         return "Heating food at power level: " + powerLevel + ".";
-    }
-    public void performFunction() {
-        System.out.println("Heating food at power level: " + powerLevel + ".");
     }
 }

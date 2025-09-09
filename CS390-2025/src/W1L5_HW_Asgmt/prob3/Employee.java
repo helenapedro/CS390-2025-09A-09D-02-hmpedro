@@ -42,6 +42,6 @@ abstract public class Employee {
     public String toString() {
         return "Employee: [ First name = " + firstName +
                 ", Last Name = " + lastName +
-                ", SSN = " + socialSecurityNumber + " ]";
+                ", SSN = " + socialSecurityNumber;
     }
 }

@@ -12,11 +12,13 @@ public class EmployeeTest {
         Employee e1 = new CommissionEmployee("Jane", "Doe", "332-221-4444", 100.00, 5.0);
         Employee e2 = new BasePlusCommissionEmployee("Joe", "Smith", "987-654-3848", 100.00, 5.0, 50000.00);
         Employee e3 = new SalariedEmployee("Janeth", "Smith", "345-987-6996", 300.00);
-        Employee e4 = new HourlyEmployee("Miguel", "Santino", "235-789-4444", 60000, 3.0);
+        Employee e4 = new HourlyEmployee("Miguel", "Santino", "235-789-4444", 6000, 3.0);
+
+        //System.out.println(e2);
 
         Employee[] employees = {e1, e2, e3, e4};
 
-        Employee[] emps = findSalaryList(employees, 70000);
+        Employee[] emps = findSalaryList(employees, 500);
         System.out.println(Arrays.toString(emps));
     }
 
