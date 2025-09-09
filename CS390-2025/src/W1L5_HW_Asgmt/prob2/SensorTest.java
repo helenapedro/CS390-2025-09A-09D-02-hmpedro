@@ -1,9 +1,9 @@
 package W1L5_HW_Asgmt.prob2;
 
 import W1L5_HW_Asgmt.prob2.smarthomesensors.interfaces.Sensor;
-import W1L5_HW_Asgmt.prob2.smarthomesensors.model.LightSensor;
-import W1L5_HW_Asgmt.prob2.smarthomesensors.model.SoundSensor;
-import W1L5_HW_Asgmt.prob2.smarthomesensors.model.TemperatureSensor;
+import W1L5_HW_Asgmt.prob2.smarthomesensors.models.LightSensor;
+import W1L5_HW_Asgmt.prob2.smarthomesensors.models.SoundSensor;
+import W1L5_HW_Asgmt.prob2.smarthomesensors.models.TemperatureSensor;
 
 public class SensorTest {
     public static void main(String[] args) {

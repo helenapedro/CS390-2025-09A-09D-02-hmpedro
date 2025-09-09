@@ -1,4 +1,4 @@
-package W1L5_HW_Asgmt.prob2.smarthomesensors.model;
+package W1L5_HW_Asgmt.prob2.smarthomesensors.models;
 
 import W1L5_HW_Asgmt.prob2.smarthomesensors.interfaces.Sensor;
 import java.time.LocalDateTime;

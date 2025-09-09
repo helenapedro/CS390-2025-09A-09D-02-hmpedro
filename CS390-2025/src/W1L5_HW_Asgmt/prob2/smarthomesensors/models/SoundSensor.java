@@ -1,50 +1,46 @@
-package W1L5_HW_Asgmt.prob2.smarthomesensors.model;
+package W1L5_HW_Asgmt.prob2.smarthomesensors.models;
 
 import W1L5_HW_Asgmt.prob2.smarthomesensors.interfaces.Sensor;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class LightSensor implements Sensor {
+public class SoundSensor implements Sensor {
     // Instance fields
     private String location;
-    private double lightLevel;
+    double soundLevel;
     private LocalDateTime lastUpdated;
 
-    public LightSensor(String location, double lightLevel) {
+    // Parameter constructor
+    public SoundSensor(String location, double soundLevel) {
         this.location = location;
-        this.lightLevel = lightLevel;
+        this.soundLevel = soundLevel;
         this.lastUpdated = LocalDateTime.now();
     }
 
     @Override
     public String getSensorType() {
-
         return getClass().getSimpleName().replace("Sensor", "");
     }
-
     @Override
     public double getReading() {
-        return lightLevel;
+        return soundLevel;
     }
-
     @Override
     public String getLocation() {
         return location;
     }
-
     @Override
     public String getLastUpdated() {
         lastUpdated = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
         return lastUpdated.format(formatter);
     }
-
     @Override
     public String performAction() {
-        if (lightLevel < 100) {
-            return "an alert to turn on the light";
+        if (soundLevel > 70) {
+            return "an alert to turn on noise cancellation";
         } else {
-            return " Light is sufficient";
+            return "Sound level is within normal range";
         }
     }
 
