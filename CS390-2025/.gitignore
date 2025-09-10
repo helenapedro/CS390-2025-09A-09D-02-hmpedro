@@ -3,6 +3,7 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 src/demo
+src/quiz2prep
 .idea/
 out/
 CS390-2025-09.iml

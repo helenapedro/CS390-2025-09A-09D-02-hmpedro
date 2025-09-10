@@ -14,11 +14,9 @@ public class EmployeeTest {
         Employee e3 = new SalariedEmployee("Janeth", "Smith", "345-987-6996", 300.00);
         Employee e4 = new HourlyEmployee("Miguel", "Santino", "235-789-4444", 6000, 3.0);
 
-        //System.out.println(e2);
-
         Employee[] employees = {e1, e2, e3, e4};
 
-        Employee[] emps = findSalaryList(employees, 500);
+        Employee[] emps = findSalaryList(employees, 5000);
         System.out.println(Arrays.toString(emps));
     }
 

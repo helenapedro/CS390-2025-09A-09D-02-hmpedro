@@ -44,4 +44,12 @@ abstract public class Employee {
                 ", Last Name = " + lastName +
                 ", SSN = " + socialSecurityNumber;
     }
+
+    @Override
+    public boolean equals(Object ob) {
+        if (ob instanceof Employee emp) {
+            return this.socialSecurityNumber.equals(emp.socialSecurityNumber);
+        }
+        return false;
+    }
 }
