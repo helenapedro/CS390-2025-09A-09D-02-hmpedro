@@ -19,8 +19,8 @@ public class Clothing extends Product {
     @Override
     public String toString() {
         return String.format(
-                "Clothing { name = '%s', price = %.2f, brand = '%s', discount = %.1f%%, final price = %.2f }",
-                getProductName(), super.getPrice(), brand, discount, getPrice()
+                "Clothing { %s, brand = '%s', discount = $%.1f%%, final price = $%.2f }",
+                super.toString(), brand, discount, getPrice()
         );
     }
 
