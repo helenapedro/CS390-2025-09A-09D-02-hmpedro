@@ -16,8 +16,8 @@ public class Electronics extends Product {
     @Override
     public String toString() {
         return String.format(
-                "Electronic { name = '%s', price = %.2f, warranty months = %d,warranty cost = %.2f, final price = %.2f }",
-                getProductName(), super.getPrice(), warrantyMonths, warrantyCost, getPrice()
+                "Electronic {%s, warranty months = %d,warranty cost = %.2f, final price = %.2f }",
+                super.toString(), warrantyMonths, warrantyCost, getPrice()
         );
     }
 
