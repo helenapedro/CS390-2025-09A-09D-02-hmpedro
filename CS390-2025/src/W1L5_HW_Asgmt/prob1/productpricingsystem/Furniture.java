@@ -16,8 +16,8 @@ public class Furniture extends Product {
     @Override
     public String toString() {
         return String.format(
-                "Furniture { name: %s, price = %.2f, material: %s, shipping cost = %.2f, final price = %.2f }",
-                getProductName(), super.getPrice(), material, shippingCost, getPrice()
+                "Furniture { %s, material: %s, shipping cost = %.2f, final price = %.2f }",
+                super.toString(), material, shippingCost, getPrice()
         );
     }
 
