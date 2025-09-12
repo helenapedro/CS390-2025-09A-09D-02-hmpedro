@@ -4,23 +4,18 @@ import java.util.Scanner;
 
 public class FindMinChar {
     /* Using recursion to find the minimum character in the given string input.*/
-    public static char findMinChar(String input) {
-        int min = Integer.MAX_VALUE;
+    public static char findMinChar(String str) {
+        if (str == null || str.isEmpty())
+            throw new IllegalArgumentException("String cannot be empty.");
 
-        if (input == null || input.isEmpty()) {
-            throw new IllegalArgumentException("Please provide a valid input");
+        if (str.length() == 1) {
+            return str.charAt(0);
         }
-        return findMinChar(input, 0, min, '\u0000');
-    }
 
-    private static char findMinChar(String str, int i, int min, char minChar) {
-        if (i >= str.length()) return minChar;
+        char min = str.charAt(0);
+        char rest = findMinChar(str.substring(1));
 
-        if (str.charAt(i) < min) {
-            min = str.charAt(i);
-            minChar = (char) min;
-        }
-        return findMinChar(str, i + 1, min, minChar);
+        return (min < rest) ? min : rest;
     }
 
     public static void main(String[] args) {

@@ -29,4 +29,20 @@ public class Product {
                 productName, price
         );
     }
+
+    @Override
+    public boolean equals(Object ob) {
+        if (ob instanceof Product p) {
+            return this.productName.equals(p.getProductName()) && this.price == p.price;
+        }
+        return false;
+    }
+
+//    @Override
+//    public boolean equals(Object ob) {
+//        if (ob == null || this.getClass() != ob.getClass()) return false;
+//        Product p = (Product) ob;
+//        return this.productName.equals(p.productName)
+//                && this.price == p.price;
+//    }
 }
