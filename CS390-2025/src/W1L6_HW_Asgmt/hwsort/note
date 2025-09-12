@@ -1,0 +1,5 @@
+In the original code, Secretary.toString() used "netSalary" directly,
+ which was 0.0 before calling getSalary().
+
+ Fix: Changed toString() to call getSalary() so the correct value
+ (base salary + overtime*12) is always shown.
