@@ -7,6 +7,8 @@ import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Product;
 
 import java.util.Arrays;
 
+import java.util.Arrays;
+
 public class ProductPriceSystemTest {
     /* Follow LSP & Dynamic Binding:
         - to configure specific behavior/state of an object - create subclass directly
