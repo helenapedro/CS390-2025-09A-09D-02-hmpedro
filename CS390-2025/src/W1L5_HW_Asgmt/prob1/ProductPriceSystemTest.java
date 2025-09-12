@@ -1,13 +1,13 @@
 package W1L5_HW_Asgmt.prob1;
 
+import W1L5_HW_Asgmt.prob1.productpricingsystem.ProductPricingSystemData;
 import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Clothing;
-import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Electronics;
 import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Furniture;
 import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Product;
-
+import W1L5_HW_Asgmt.prob1.productpricingsystem.utils.ProductNameComparator;
+import W1L5_HW_Asgmt.prob1.productpricingsystem.utils.ProductPriceComparator;
 import java.util.Arrays;
-
-import java.util.Arrays;
+import java.util.Comparator;
 
 public class ProductPriceSystemTest {
     /* Follow LSP & Dynamic Binding:
@@ -16,21 +16,7 @@ public class ProductPriceSystemTest {
         - process it calling the common methods (getPrice(), toString()) - without downcast
     */
     public static void main(String[] args) {
-        Clothing c1 = new Clothing("Blouse", 15.22);
-        Clothing c2 = new Clothing("Pants", 120.00);
-        c1.setBrand("Adidas");
-        c2.setBrand("Nike");
-
-        Electronics e1 = new Electronics("TV", 100.00);
-        e1.setWarrantyCost(3000.00);
-        e1.setWarrantyMonths(24);
-
-        Furniture f1 = new Furniture("wood", 22.15);
-        Furniture f2 = new Furniture("Plastic Chair", 150.00);
-        f1.setMaterial("Wood");
-        f2.setMaterial("Plastic");
-
-        Product[] products = {c1, e1, f1, c2, f2};
+        Product[] products = ProductPricingSystemData.getProductData();
 
         for (Product p : products) {
             if (p instanceof Clothing c) {
@@ -44,22 +30,40 @@ public class ProductPriceSystemTest {
             }
         }
 
-        //Sorting with Lambda Expressions - sorting products by Name (A - Z)
-        Arrays.sort(products, (p1, p2) -> p1.getProductName().compareTo(p2.getProductName()));
+        //Arrays.sort(products, new ProductNameComparator());
+        Arrays.sort(products, new ProductPriceComparator());
+        System.out.println(Arrays.toString(products));
 
-        for (Product p : products) {System.out.println(p);}
+        //for (Product p : products) {System.out.println(p);} //  print the status of the objects(overriding toString()).
 
         double sum = sumProducts(products);
         System.out.println("\nSum of products: " + sum);
+
+        Product expensive = mostExpensiveProductPrice(products);
+        System.out.println("Most expensive product: ");
+        System.out.println(expensive);
     }
 
-    public static double sumProducts(Product[] col) {
-        if (col == null) return 0.0;
+    public static double sumProducts(Product[] prod) {
+        if (prod == null) return 0.0;
         double sum = 0.0;
-        for (Product product : col) {
+        for (Product product : prod) {
             if (product != null)
                 sum += product.getPrice(); // Dynamic binding - getPrice() of subclasses is called at run time
         }
         return sum;
+    }
+
+    public static Product mostExpensiveProductPrice(Product[] prod) {
+        if (prod == null) throw new IllegalArgumentException("Product array is null");
+
+        Product mostExpensiveProduct = prod[0];
+
+        for (Product pd : prod) {
+            if (pd != null && pd.getPrice() > mostExpensiveProduct.getPrice()) {
+                mostExpensiveProduct = pd;
+            }
+        }
+        return mostExpensiveProduct;
     }
 }

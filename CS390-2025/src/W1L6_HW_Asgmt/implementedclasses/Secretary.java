@@ -1,4 +1,4 @@
-package hwsort.taska;
+package W1L6_HW_Asgmt.implementedclasses;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -15,12 +15,13 @@ public class Secretary extends DeptEmployee {
 	}
 	
 	//overrides superclass method
+	@Override
 	public double getSalary() {
 		netSalary = super.getSalary() + 12*overtimeHours;
 		return netSalary;
 	}
 	@Override
 	public String toString() {
-		return "name=" + super.getName() + ", salary=" + netSalary + ", hireDate=" + super.getHireDate();
+		return "name=" + super.getName() + ", salary=" + getSalary() + ", hireDate=" + super.getHireDate();
 	}
 }
