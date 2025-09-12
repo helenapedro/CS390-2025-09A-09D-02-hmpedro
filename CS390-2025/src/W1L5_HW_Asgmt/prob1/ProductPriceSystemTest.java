@@ -1,9 +1,11 @@
 package W1L5_HW_Asgmt.prob1;
 
-import W1L5_HW_Asgmt.prob1.productpricingsystem.Clothing;
-import W1L5_HW_Asgmt.prob1.productpricingsystem.Electronics;
-import W1L5_HW_Asgmt.prob1.productpricingsystem.Furniture;
-import W1L5_HW_Asgmt.prob1.productpricingsystem.Product;
+import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Clothing;
+import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Electronics;
+import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Furniture;
+import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Product;
+
+import java.util.Arrays;
 
 public class ProductPriceSystemTest {
     /* Follow LSP & Dynamic Binding:
@@ -14,11 +16,8 @@ public class ProductPriceSystemTest {
     public static void main(String[] args) {
         Clothing c1 = new Clothing("Blouse", 15.22);
         Clothing c2 = new Clothing("Pants", 120.00);
-
-        c1.setDiscount(5);
         c1.setBrand("Adidas");
         c2.setBrand("Nike");
-        c2.setDiscount(10);
 
         Electronics e1 = new Electronics("TV", 100.00);
         e1.setWarrantyCost(3000.00);
@@ -27,19 +26,26 @@ public class ProductPriceSystemTest {
         Furniture f1 = new Furniture("wood", 22.15);
         Furniture f2 = new Furniture("Plastic Chair", 150.00);
         f1.setMaterial("Wood");
-        f1.setShippingCost(12.50);
         f2.setMaterial("Plastic");
-        f2.setShippingCost(20.00);
 
-        Product[] products = {
-                c1, e1, f1, c2, f2,
-//                new Clothing("Pants", 33.33),
-//                new Clothing("Dress", 25.03)
-        };
+        Product[] products = {c1, e1, f1, c2, f2};
 
         for (Product p : products) {
-            System.out.println(p);
+            if (p instanceof Clothing c) {
+                c.setDiscount(10);
+            }
         }
+
+        for (Product p : products) {
+            if (p instanceof Furniture f) {
+                f.setShippingCost(12.00);
+            }
+        }
+
+        //Sorting with Lambda Expressions - sorting products by Name (A - Z)
+        Arrays.sort(products, (p1, p2) -> p1.getProductName().compareTo(p2.getProductName()));
+
+        for (Product p : products) {System.out.println(p);}
 
         double sum = sumProducts(products);
         System.out.println("\nSum of products: " + sum);
@@ -48,9 +54,9 @@ public class ProductPriceSystemTest {
     public static double sumProducts(Product[] col) {
         if (col == null) return 0.0;
         double sum = 0.0;
-        for (Product p : col) {
-            if (p != null)
-                sum += p.getPrice(); // Dynamic binding - getPrice() of subclasses is called at run time
+        for (Product product : col) {
+            if (product != null)
+                sum += product.getPrice(); // Dynamic binding - getPrice() of subclasses is called at run time
         }
         return sum;
     }
