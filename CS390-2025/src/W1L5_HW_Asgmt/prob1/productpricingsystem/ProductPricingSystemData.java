@@ -6,9 +6,20 @@ import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Furniture;
 import W1L5_HW_Asgmt.prob1.productpricingsystem.model.Product;
 
 public class ProductPricingSystemData {
+    public static void main(String[] args) {
+        Product[] arr = ProductPricingSystemData.getProductData();
+        double sum = 0.00;
+        for (Product p : arr) {
+            if (p instanceof Clothing c) {
+                sum += c.getPrice();
+            }
+        }
+        System.out.println(sum);
+    }
     public static Product[] getProductData() {
         Clothing c1 = new Clothing("Blouse", 15.22);
         Clothing c2 = new Clothing("Pants", 120.00);
+        Clothing c3 = new Clothing("",0.00);
         c1.setBrand("Adidas");
         c2.setBrand("Nike");
 
@@ -21,6 +32,6 @@ public class ProductPricingSystemData {
         f1.setMaterial("Wood");
         f2.setMaterial("Plastic");
 
-        return new Product[]{c1, c2, e1, f1, f2};
+        return new Product[]{c1, c2, c3, e1, f1, f2};
     }
 }

@@ -3,6 +3,8 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 src/demo
+src/
+src/datastructure
 src/quiz2prep
 .idea/
 out/
