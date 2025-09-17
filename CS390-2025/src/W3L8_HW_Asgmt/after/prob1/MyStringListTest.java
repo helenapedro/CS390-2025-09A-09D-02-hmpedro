@@ -1,5 +1,7 @@
 package W3L8_HW_Asgmt.after.prob1;
 
+import java.util.Collections;
+
 public class MyStringListTest {
     public static void main(String[] args) {
         MyStringList stringList = new MyStringList();
@@ -33,11 +35,24 @@ public class MyStringListTest {
         String remElement = stringList.removeAt(1);
         System.out.println(remElement + " was removed from the list");
         System.out.println("The list of size " + stringList.size() + " after removing " + remElement + " is " + stringList);
+
+
         String old = stringList.set(3, "Peter");
         System.out.println("\nOld element: " + old);
         System.out.println("The list of size " + stringList.size() + " after replacing " + old + " with Peter is " + stringList);
-        System.out.println("\nSublist");
-        System.out.println(stringList.subList(0,3));
+
+        MyStringList other = new MyStringList();
+        other.add("Tonya");
+        other.add("Susan");
+        other.add("Richard");
+        System.out.println("The current list: "
+                + stringList
+                + " contains all elements in the other list: \n "
+                + other + ": "
+                + stringList.containsAll(other));
+        //System.out.println(stringList.containsAll(other));
+
+        System.out.println("\nSublist: " + stringList.subList(0,3));
         System.out.println("\nClear the list");
         stringList.clear();
         System.out.println("The list of size " + stringList.size() + " is " + stringList);
