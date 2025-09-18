@@ -3,45 +3,46 @@ package W3L9_HW_Asgmt.prob2;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
-    private Node first;
+    private final Node dummy;
     private Node last;
     private int size;
 
-    public void addFirst(Integer item) {
-        Node node = new Node(item);
+    public LinkedList() {
+        dummy = new Node(null);
+        last = dummy;
+        size = 0;
+    }
 
-        if(isEmpty())
-            first = last = node;
-        else {
-            node.next = first;
-            first = node;
-        }
+    public void addFirst(Integer item) {
+        var nn = new Node(item);
+        nn.next = dummy.next;
+        dummy.next = nn;
+
+        if (last == dummy)
+            last = nn;
         size++;
     }
 
-    public Integer removeFirst() {
-        if (isEmpty()) throw new NoSuchElementException("List is empty.");
+    public void removeFirst() {
+        if (isEmpty())
+            throw new NoSuchElementException("List is empty.");
 
-        int removedValue = first.value;
+        var firstRealNode = dummy.next;
+        dummy.next = firstRealNode.next;
 
-        if (first == last)
-            first = last = null;
-        else {
-            Node second = first.next;
-            first.next = null;
-            first = second;
+        if (firstRealNode == last) {
+            last = dummy;
         }
         size--;
-        return removedValue;
     }
 
     public Integer getFirst() {
         if (isEmpty()) throw new NoSuchElementException("List is empty");
-        return first.value;
+        return dummy.next.value;
     }
 
     public boolean isEmpty() {
-        return first == null;
+        return size == 0;
     }
 
     public int size() {
@@ -51,7 +52,7 @@ public class LinkedList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
-        Node curr = first;
+        Node curr = dummy.next;
         while (curr != null) {
             sb.append(curr.value);
             curr = curr.next;
@@ -61,11 +62,9 @@ public class LinkedList {
         return sb.toString();
     }
 
-    static final class Node {
+    static class Node {
         final Integer value;
         Node next;
-        public Node(Integer value) {
-            this.value = value;
-        }
+        Node(Integer value) { this.value = value; }
     }
 }

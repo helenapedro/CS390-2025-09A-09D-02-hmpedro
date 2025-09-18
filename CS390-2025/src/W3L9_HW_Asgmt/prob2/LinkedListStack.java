@@ -12,7 +12,9 @@ public class LinkedListStack {
     }
 
     public Integer pop() {
-        return list.removeFirst();
+        Integer top = list.getFirst();
+        list.removeFirst();
+        return top;
     }
 
     public Integer peek() {
