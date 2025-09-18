@@ -12,7 +12,6 @@ public class BrowserHistory {
     }
 
     public void visit(String url) {
-        // TODO: push current to back, clear forward, set currentUrl, print
         back.push(currentUrl);
         forward.clear();
         currentUrl = url;
@@ -24,9 +23,19 @@ public class BrowserHistory {
             System.out.println("No history to go back to.");
             return;
         }
-        // forward = [currentUrl]
+
         forward.push(currentUrl);
         currentUrl = back.pop();
         System.out.println("Back to: " + currentUrl);
+    }
+
+    public void forward() {
+        if (forward.isEmpty()) {
+            System.out.println("No forward history");
+            return;
+        }
+        back.push(currentUrl);
+        currentUrl = forward.pop();
+        System.out.println("Forward to: " + currentUrl);
     }
 }

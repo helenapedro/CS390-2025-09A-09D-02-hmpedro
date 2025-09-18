@@ -8,9 +8,9 @@ public class TestBrowserHistory {
         browser.back();
         browser.back();
         browser.back();
-//        browser.forward();
-//        browser.forward();
-//        browser.forward();
+        browser.forward();
+        browser.forward();
+        browser.forward();
         browser.visit("page3.html");
     }
 }
