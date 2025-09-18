@@ -63,6 +63,7 @@ public class DoublyLinkedList {
         toString(sb, header);
         return sb.toString();
     }
+
     private void toString(StringBuilder sb, Node n) {
         if(n==null) return;
         if(n.value != null) sb.append(" " + n.value);
