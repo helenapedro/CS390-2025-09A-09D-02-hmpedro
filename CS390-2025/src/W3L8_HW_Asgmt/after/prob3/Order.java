@@ -1,14 +1,17 @@
 package W3L8_HW_Asgmt.after.prob3;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class Order{
     private String orderId;
     private String customerName;
     private double totalAmount;
+    private static int counter = 1;
 
-    public Order(String orderId, String customerName, double totalAmount) {
-        this.orderId = orderId;
+    public Order(String customerName, double totalAmount) {
+        //this.orderId = orderId;
+        this.orderId = "ORD-" + LocalDate.now() + "_" + counter++;
         this.customerName = customerName;
         this.totalAmount = totalAmount;
     }
@@ -17,10 +20,11 @@ public class Order{
     public boolean equals(Object o) {
         // implement: same orderId => equal
         if (this == o) return true;
-        if (o == null) return false;
 
         if (o instanceof Order order) {
-            return Objects.equals(orderId, order.orderId);
+            return Double.compare(order.totalAmount, totalAmount) == this.totalAmount
+                    && Objects.equals(orderId, order.orderId)
+                    && Objects.equals(customerName, order.customerName);
         }
         return false;
     }
@@ -28,7 +32,7 @@ public class Order{
     @Override
     public int hashCode() {
         // consistent with equals
-        return 0;
+        return Objects.hash(orderId, customerName, totalAmount);
     }
 
     @Override
@@ -60,9 +64,4 @@ public class Order{
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
-// Order implements Comparable<Order>
-//    @Override
-//    public int compareTo(Order other) {
-//        return orderId.compareTo(other.orderId);
-//    }
 }
