@@ -26,7 +26,7 @@ public class ArrayQueueImpl {
     }
 
     public Integer peek() {
-        if (isEmpty()) throw new IllegalStateException();
+        if (isEmpty()) throw new NoSuchElementException("Queue is empty.");
         return arr[front];
     }
 
