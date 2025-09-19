@@ -29,7 +29,7 @@ public class Key {
 
     @Override
     public String toString() {
-        return String.format("first name: %s, last name: %s", firstName, lastName);
+        return String.format("%s %s", firstName, lastName);
     }
 
 	public String getFirstName() {

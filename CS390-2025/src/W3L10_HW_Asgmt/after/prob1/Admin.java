@@ -13,7 +13,7 @@ public class Admin {
 		return map;
 	}
 
-    public static void main(String[] args) {
+    public static void show() {
         List<Student> list = new ArrayList<Student>() {
             {
                 add(new Student("Joe", "Smith", 3.2, Standing.FRESHMAN));
@@ -26,6 +26,11 @@ public class Admin {
         };
 
         HashMap<Key, Student> map = processStudents(list);
-        System.out.println(map);
+        map.forEach((key, value) ->
+            System.out.printf(
+                    "%s -> GPA: %.1f, Standing: %s%n",
+                    key, value.getGpa(), value.getStanding()
+            )
+        );
     }
 }
