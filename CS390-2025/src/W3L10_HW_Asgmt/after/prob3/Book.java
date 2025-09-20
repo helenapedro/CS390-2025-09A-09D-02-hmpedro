@@ -12,18 +12,23 @@ class Book {
         this.author = author;
         this.isBorrowed = false;
     }
+
+    @Override
+    public String toString() {
+        return "Book{ISBN = " + ISBN + ", title = " + title
+                + ", author = " + author + ", isBorrowed = " + isBorrowed + "}";
+    }
+
     public String getISBN() {
         return ISBN;
     }
+
     public void setBorrowed(boolean borrowed) {
         isBorrowed = borrowed;
     }
+
     public boolean isBorrowed() {
         return isBorrowed;
-    }
-    @Override
-    public String toString() {
-        return "Book{ISBN= " + ISBN + " title= " + title + " author= " + author + "isBorrowed= " + isBorrowed;
     }
 }
 
