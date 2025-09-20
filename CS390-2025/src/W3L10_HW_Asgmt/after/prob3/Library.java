@@ -1,9 +1,6 @@
 package W3L10_HW_Asgmt.after.prob3;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.NoSuchElementException;
 
 public class Library {
     private final HashMap<String, Book> map = new HashMap<>();
@@ -17,38 +14,39 @@ public class Library {
         System.out.println("Book successfully added.");
     }
 
-    public void borrowBook(String ISBN) {
-        Book book = map.get(ISBN);
+    public boolean borrowBook(String ISBN) {
+        Book book = getBook(ISBN);
 
-        if (book == null) {
-            throw new NoSuchElementException("Book not found");
-        }
+        if (isBookNull(book)) return false;
 
         if (book.isBorrowed()) {
             System.out.println("Sorry this book is already borrowed.");
-            return;
+            return false;
         }
+
         book.setBorrowed(true);
         System.out.println("Book borrowed successfully.");
+        return true;
     }
 
-    public void returnBook(String ISBN) {
-        Book book = map.get(ISBN);
+    public boolean returnBook(String ISBN) {
+        Book book = getBook(ISBN);
 
-        if (book == null) {
-            throw new NoSuchElementException("Book not found");
+        if (isBookNull(book)) return false;
+
+        if (!book.isBorrowed()) {
+            System.out.println("This book was not borrowed, cannot return");
+            return false;
         }
 
-        if (book.isBorrowed()) {
-            book.setBorrowed(false);
-            System.out.println("Book returned successfully.");
-            return;
-        }
-        System.out.println("This book was not borrowed, cannot return");
+        book.setBorrowed(false);
+        System.out.println("Book returned successfully.");
+        return true;
     }
 
     public boolean isBookBorrowed(String ISBN) {
-        Book book = map.get(ISBN);
+        Book book = getBook(ISBN);
+        if (isBookNull(book)) return false;
         return book.isBorrowed();
     }
 
@@ -58,7 +56,7 @@ public class Library {
 
     public void listAllBooks() {
         for (Book book : map.values()) {
-            if (book != null)
+            if (!isBookNull(book))
                 System.out.println(book);
         }
     }
@@ -71,4 +69,16 @@ public class Library {
         }
     }
 
+    // Helper Methods
+    private static boolean isBookNull(Book book) {
+        if (book == null) {
+            System.out.println("Book not found");
+            return true;
+        }
+        return false;
+    }
+
+    private Book getBook(String ISBN) {
+        return map.get(ISBN);
+    }
 }
