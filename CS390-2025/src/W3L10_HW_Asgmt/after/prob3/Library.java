@@ -6,6 +6,11 @@ public class Library {
     private final HashMap<String, Book> map = new HashMap<>();
 
     public void addBook(String ISBN, String title, String author) {
+        if (ISBN == null || ISBN.isBlank()) {
+            System.out.println("Invalid ISBN.");
+            return;
+        }
+
         if (map.containsKey(ISBN)) {
             System.out.println("Key already exists in the library.");
             return;
@@ -15,6 +20,11 @@ public class Library {
     }
 
     public boolean borrowBook(String ISBN) {
+        if (ISBN == null || ISBN.isBlank()) {
+            System.out.println("Invalid ISBN.");
+            return false;
+        }
+
         Book book = getBook(ISBN);
 
         if (isBookNull(book)) return false;
@@ -30,6 +40,11 @@ public class Library {
     }
 
     public boolean returnBook(String ISBN) {
+        if (ISBN == null || ISBN.isBlank()) {
+            System.out.println("Invalid ISBN.");
+            return false;
+        }
+
         Book book = getBook(ISBN);
 
         if (isBookNull(book)) return false;
@@ -56,8 +71,7 @@ public class Library {
 
     public void listAllBooks() {
         for (Book book : map.values()) {
-            if (!isBookNull(book))
-                System.out.println(book);
+            System.out.println(book);
         }
     }
 
