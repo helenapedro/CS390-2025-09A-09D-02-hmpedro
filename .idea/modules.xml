@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CS390-2025-09.iml" filepath="$PROJECT_DIR$/CS390-2025-09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fppdbdemo.iml" filepath="$PROJECT_DIR$/fppdbdemo.iml" />
     </modules>
   </component>
 </project>

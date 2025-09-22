@@ -13,11 +13,11 @@ public class StringStack { // Stack (LIFO)
         stack.add(target);
     }
 
-    public String pop() {
+    public Object pop() {
         return stack.removeLast();
     }
 
-    public String peek() {
+    public Object peek() {
         return stack.getLast();
     }
 
